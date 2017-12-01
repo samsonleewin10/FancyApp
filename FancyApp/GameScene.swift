@@ -8,6 +8,9 @@
 
 import SpriteKit
 import GameplayKit
+import AppCenter
+import AppCenterAnalytics
+import AppCenterCrashes
 
 class GameScene: SKScene {
     
@@ -43,6 +46,7 @@ class GameScene: SKScene {
             n.position = pos
             n.strokeColor = SKColor.green
             self.addChild(n)
+            MSAnalytics.trackEvent("Touch Started", withProperties: ["Action" : "Touch"])
         }
     }
     
@@ -51,6 +55,7 @@ class GameScene: SKScene {
             n.position = pos
             n.strokeColor = SKColor.blue
             self.addChild(n)
+            MSAnalytics.trackEvent("Touching", withProperties: ["Action" : "Touch"])
         }
     }
     
@@ -59,6 +64,7 @@ class GameScene: SKScene {
             n.position = pos
             n.strokeColor = SKColor.red
             self.addChild(n)
+            MSAnalytics.trackEvent("Touch Ended", withProperties: ["Action" : "Touch"])
         }
     }
     
